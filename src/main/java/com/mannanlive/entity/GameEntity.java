@@ -28,6 +28,8 @@ public class GameEntity {
     private String publisher;
     private boolean exclusive;
     private LocalDate releaseDate;
+    private String wikiLink;
+    private String imageLink;
 
     @ManyToOne
     private ConsoleEntity console;
@@ -109,5 +111,21 @@ public class GameEntity {
 
     public void setGenres(List<String> genres) {
         this.genres = genres;
+    }
+
+    public String getWikiLink() {
+        return wikiLink;
+    }
+
+    public void setWikiLink(String wikiLink) {
+        this.wikiLink = wikiLink;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 }

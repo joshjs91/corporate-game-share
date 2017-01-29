@@ -39,11 +39,15 @@ public class GameService {
 
     private SpecificationBuilder<GameEntity> specificationBuilder = new SpecificationBuilder<>();
 
+    @Autowired
+    private GameImageService gameImageService;
+
     public Game findById(long gameId) {
         GameEntity result = gameRepository.findOne(gameId);
         if (result == null) {
             throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
         }
+        gameImageService.refreshGameImage(result);
         return gameTranslator.translate(result);
     }
 
